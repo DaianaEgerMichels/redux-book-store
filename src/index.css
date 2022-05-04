@@ -91,6 +91,15 @@ justify-content: space-around;
   display: flex;
   align-items: center;
   gap: 5px;
+  width: 50px;
+  height: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.menu-container span:hover{
+  background: #551A8B;
+  
 }
 
 .menu-container h1, .menu-container span {
