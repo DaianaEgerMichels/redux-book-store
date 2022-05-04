@@ -1,15 +1,26 @@
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import Menu from "./components/Menu";
 import Routes from "./routes";
+import store from "./store"
+
+// 1- Configurar o componente de Provider no App.js
+// 2- Configurar a store da aplicação (uma série de passos)
+// importar legacy_createStore o "as" é como está sendo chamado no código
+// criar a const store e chamar o método createStore
+// nesse método passar como parâmetro todas as funções com função de reduxes na aplicação
+//criar uma estrutura de pastas para fazer isto, para não ficar um código confuso
+
 
 function App() {
+  
   return (
-    <div >
+    <Provider store={store}>
       <BrowserRouter>
         <Menu/>
         <Routes/>
       </BrowserRouter>
-    </div>
+  </Provider>
   );
 }
 
