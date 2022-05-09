@@ -6,7 +6,7 @@
 export const addBookToCart = (book)=>{
     return{
         //type é o cpf da action, nome deve ser único, em Maiúsculo
-        //PADRÃO inicar com verrbo ADD, DELETE, etc...
+        //PADRÃO inicar com verbo ADD, DELETE, etc...
         //payload é o que você está passando para o reducer
         type: 'ADD_BOOK_TO_CART',
         payload:{
@@ -16,10 +16,29 @@ export const addBookToCart = (book)=>{
     }
 }
 
-export const removeBook = () => {
+export const removeBookToCart = (id) => {
     return {
-      type: 'REMOVE_BOOK',
+      type: 'REMOVE_BOOK_TO_CART',
       payload: {
+          id
+      }
+    }
+  }
+
+  export const decrementAmountBookToCart = (id) => {
+    return {
+      type: 'DECREMENT_AMOUNT_BOOK_TO_CART',
+      payload: {
+        id
+      }
+    }
+  }
+  
+  export const incrementAmountBookToCart = (id) => {
+    return {
+      type: 'INCREMENT_AMOUNT_BOOK_TO_CART',
+      payload: {
+        id
       }
     }
   }

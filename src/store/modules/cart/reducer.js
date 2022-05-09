@@ -1,4 +1,4 @@
-
+import { priceFormat } from "../../../utils/priceFormat"
 
 //recebe como parâmetro: um estado e uma ação
 //função reducer
@@ -12,12 +12,87 @@ const INITIAL_STATE = {
 const cart = (state = INITIAL_STATE, action)=>{
 
     switch(action.type) {
+
+      // Adiciona um novo livro ao carrinho de compras
+
         case 'ADD_BOOK_TO_CART' : {
+          const {book} = action.payload
+
+          const bookExists = state.items.find(item => item.id === book.id)
+
+          if(!bookExists){
           return {
+            ...state,
             items: [
               ...state.items,
-              action.payload.book
+              {
+                ...book,
+                amount: 1,
+                priceFormatted: priceFormat(1 * book.price)
+              }
             ] 
+          }
+        } else {
+          const newItems = state.items.map(item => {
+            if (item.id === bookExists.id) {
+              return {
+                ...item,
+                amount: item.amount + 1
+              }
+            }
+            return item
+          })
+  
+          return {
+            ...state,
+            items: newItems
+          }
+        }
+        }
+
+        case 'REMOVE_BOOK_TO_CART': {
+          const itemsFiltered = state.items.filter(item => item.id !== action.payload.id)
+          return {
+            ...state,
+            items: itemsFiltered
+          }
+        }
+    
+        case 'DECREMENT_AMOUNT_BOOK_TO_CART': {
+          const newItems = state.items.map(item => {
+            if (item.id === action.payload.id) {
+              const amount = item.amount - 1
+              return {
+                ...item,
+                amount,
+                priceFormatted: priceFormat(amount * item.price)
+              }
+            }
+            return item
+          })
+    
+          return {
+            ...state,
+            items: newItems
+          }
+        }
+    
+        case 'INCREMENT_AMOUNT_BOOK_TO_CART': {
+          const newItems = state.items.map(item => {
+            if (item.id === action.payload.id) {
+              const amount = item.amount + 1
+              return {
+                ...item,
+                amount,
+                priceFormatted: priceFormat(amount * item.price)
+              }
+            }
+            return item
+          })
+    
+          return {
+            ...state,
+            items: newItems
           }
         }
     
