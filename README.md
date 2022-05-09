@@ -1,5 +1,13 @@
 <img src="./homepage.png" alt="Page home"/>
 
+##
+
+<img src="./cartpage.png" alt="Page cart"/>
+
+##
+
+<img src="./detailspage.png" alt="Page details"/>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
