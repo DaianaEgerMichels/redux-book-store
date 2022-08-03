@@ -1,3 +1,12 @@
+# Book Store
+
+- Aplicação desenvolvida utilizando a biblioteca React Js e Redux.
+- Simulação de um e-commerce.
+- Uso de link da base de dados criada no Heroku.
+
+- Live Code:
+  - https://book-store-redux.netlify.app/
+
 <img src="./homepage.png" alt="Page home"/>
 
 ##
