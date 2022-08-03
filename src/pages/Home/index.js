@@ -15,7 +15,7 @@ function Home() {
   useEffect(() => {
     async function handleGetBooks(){
     axios
-      .get('http://localhost:3333/books')
+      .get('https://books-store-db.herokuapp.com/books')
       .then((response) => setBooks(response.data))
       .catch(() => alert('Desculpe ! Houve um erro ao tentar recuperar os livros.'))
     }
